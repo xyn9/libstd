@@ -13,7 +13,6 @@ PROJ = libstd
 OBJS = \
 	_crt0cw.obj \
 	_cltoargv.obj \
-	_parse_opt.obj \
 	_gettcs.obj \
 	_putts.obj \
 #
@@ -34,7 +33,6 @@ DEBUGOBJS =
 CPPS = \
 	_crt0cw.cpp \
 	_cltoargv.cpp \
-	_parse_opt.cpp \
 	_gettcs.c \
 	_putts.c \
 #

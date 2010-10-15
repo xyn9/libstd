@@ -1,6 +1,6 @@
 
 
-libstd 0.6
+libstd 0.61
 
 
 Usage: build.bat [(default)|nostartup]

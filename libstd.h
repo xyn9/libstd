@@ -51,9 +51,6 @@
 
 // constants
 // ------------------------------------------------------------
-#define _OPT_UNNAMED  0x00
-#define _OPT_NAMED    0x01
-#define _OPT_VALUE    0x02
 
 
 
@@ -76,11 +73,7 @@
 // macros
 // ------------------------------------------------------------
 #define _TCH(_ch) ((char)(0xFF & _ch))
-#define _CMP_STR(_s1, _s2, _icase) \
-	( \
-		CompareString(LOCALE_SYSTEM_DEFAULT, (_icase ? NORM_IGNORECASE : 0), _s1,-1, _s2,-1) \
-		== CSTR_EQUAL \
-	)
+
 
 
 
@@ -93,12 +86,6 @@
 #ifdef __cplusplus
   extern "C" { // extern "C"
 #endif
-
-
-//
-size_t __cdecl _parse_opt(LPTSTR _cmdline, LPTSTR _opt[], size_t _opt_size);
-LPTSTR __cdecl _opt_pair(LPTSTR _param);
-BOOL __cdecl _opt_keycmp(LPCTSTR _key, LPCTSTR _param, BOOL _icase);
 
 
 //
