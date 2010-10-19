@@ -44,12 +44,12 @@ WinMainCRTStartup(void)
 #endif
 //
 {
-	//
-	int result = -1;
-	//
-	STARTUPINFO si;
-	//
-	LPCTSTR raw_cmdline = GetCommandLine();
+  //
+  int result = -1;
+  //
+  STARTUPINFO si;
+  //
+  LPCTSTR raw_cmdline = GetCommandLine();
   LPTSTR cmdline = (LPTSTR)HeapAlloc(
   	GetProcessHeap()
   	, HEAP_ZERO_MEMORY
@@ -57,29 +57,29 @@ WinMainCRTStartup(void)
   );
 
   //
-	_atexit_init();	// set up our minimal cheezy atexit table
-	_initterm(__xc_a, __xc_z);	// Call C++ constructors
+  _atexit_init();	// set up our minimal cheezy atexit table
+  _initterm(__xc_a, __xc_z);	// Call C++ constructors
   //
   if(cmdline != NULL){
-	  //
-    lstrcpy(cmdline, PathGetArgs(raw_cmdline));
-		//
-		si.dwFlags = 0;
-		GetStartupInfo(&si);
     //
-	  result = _tWinMain(
+    lstrcpy(cmdline, PathGetArgs(raw_cmdline));
+  	//
+  	si.dwFlags = 0;
+  	GetStartupInfo(&si);
+    //
+    result = _tWinMain(
       GetModuleHandle(0)
       , 0
       , cmdline
       , (si.dwFlags&STARTF_USESHOWWINDOW ? si.wShowWindow : SW_SHOWDEFAULT)
     );
-	  //
+    //
     if(! HeapFree(GetProcessHeap(), 0, cmdline)){ result = -1; }
   }
   //
-	_doexit();
-	ExitProcess(result);
-	//
+  _doexit();
+  ExitProcess(result);
+  //
 }
 
 

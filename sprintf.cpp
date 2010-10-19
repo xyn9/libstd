@@ -46,20 +46,20 @@ int sprintf(char *buffer, const char *format, ...)
 //
 int _snprintf(char *dest, size_t n, const char *fmt, ...)
 {
-	n;
+  n;
 
-	va_list args;
-	va_start(args, fmt);
-	int retValue = vsprintf(dest, fmt, args);
-	va_end(args);
-	return retValue;
+  va_list args;
+  va_start(args, fmt);
+  int retValue = vsprintf(dest, fmt, args);
+  va_end(args);
+  return retValue;
 }
 
 //
 int vsnprintf(char *dest, size_t n, const char *fmt, va_list args)
 {
-	n;
-	return vsprintf(dest, fmt, args);
+  n;
+  return vsprintf(dest, fmt, args);
 }
 
 
@@ -67,4 +67,10 @@ int vsnprintf(char *dest, size_t n, const char *fmt, va_list args)
 #ifdef __cplusplus
 } // EXTERN_C_END
 #endif // __cplusplus
+
+
+
+
+
+//
 

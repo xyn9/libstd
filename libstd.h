@@ -18,30 +18,42 @@
 //
 #ifdef _USE_LIBSTD
 
-	#ifdef _DEBUG
+  #ifdef _DEBUG
 /*
 #pragma comment(lib, "./libstd_d.lib")
 #pragma comment(linker, "/nodefaultlib:libcd.lib")
  */
-	#else // _DEBUG
+  #else // _DEBUG
+
+//    #ifdef _CONSOLE
+// #pragma comment(lib, "./libstd_con.lib")
+//    #else // _CONSOLE
 #pragma comment(lib, "./libstd.lib")
+//    #endif // _CONSOLE
 #pragma comment(linker, "/nodefaultlib:libc.lib")
-	#endif // _DEBUG
+
+  #endif // _DEBUG
 
 #endif
 
 //
 #ifdef _USE_LIBSTD_MT
 
-	#ifdef _DEBUG
+  #ifdef _DEBUG
 /*
 #pragma comment(lib, "./libstd_mt_d.lib")
 #pragma comment(linker, "/nodefaultlib:libcmtd.lib")
  */
-	#else // _DEBUG
+  #else // _DEBUG
+
+//    #ifdef _CONSOLE
+// #pragma comment(lib, "./libstd_con_mt.lib")
+//    #else // _CONSOLE
 #pragma comment(lib, "./libstd_mt.lib")
+//    #endif // _CONSOLE
 #pragma comment(linker, "/nodefaultlib:libcmt.lib")
-	#endif // _DEBUG
+
+  #endif // _DEBUG
 
 #endif // _USE_LIBSTD_MT
 
@@ -94,13 +106,13 @@
 //
 int __cdecl _commandline_to_argv(LPTSTR, LPTSTR*, const int);
 
-	//
-	#ifdef NDEBUG
+  //
+  #ifdef NDEBUG
 TCHAR* __cdecl _getts_s(TCHAR*, size_t);
 #define _gets(_buffer) _getts_s(_buffer, ((sizeof(_buffer)/sizeof(_buffer[0]))-1))
 _TINT __stdcall _gettch_s(void);
 #define _getch _gettch_s
-	#endif // NDEBUG
+  #endif // NDEBUG
 
 //
 #endif // _CONSOLE

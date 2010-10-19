@@ -1,6 +1,6 @@
 
 
-libstd 0.61
+libstd 0.7
 
 
 Usage: build.bat [(default)|nostartup]
@@ -22,17 +22,19 @@ Options:
   default: オプション無しで実行すると、"default"というサブディレクトリ
     に以下のファイルがコピーされます．
 
-      libstd.lib      シングルスレッド用 通常版
-      libstd_mt.lib   マルチスレッド用 通常版
-      libstd.h        インクルードヘッダ
+      libstd.lib        シングルスレッド用 通常版
+      libstd_mt.lib     マルチスレッド用 通常版
+      libstd.h          インクルードヘッダ
 
   nostartup: "nostartup"を指定すると、"nostartup"というサブディレクトリ
     に以下のファイルがコピーされます．
 
-      libstd.lib      シングルスレッド用 スタートアップ・ルーチンなし版
-      libstd_mt.lib   マルチスレッド用 スタートアップ・ルーチンなし版
-      libstd.h        インクルードヘッダ
-      _startup.cpp    スタートアップ・ルーチンの雛形
+      libstd.lib        シングルスレッド用 スタートアップ・ルーチンなし版
+      libstd_con.lib    シングルスレッドコンソールアプリ用 スタートアップ・ルーチンなし版
+      libstd_mt.lib     マルチスレッド用 スタートアップ・ルーチンなし版
+      libstd_con_mt.lib マルチスレッドコンソールアプリ用 スタートアップ・ルーチンなし版
+      libstd.h          インクルードヘッダ
+      _startup.cpp      スタートアップ・ルーチンの雛形
 
 
 
@@ -66,7 +68,7 @@ Options:
 
 
 
-2009.5.20
+2010.10.20
 ------------------------------------------------------------
 製造元
   xyn9 <xyn9.mail@gmail.com>

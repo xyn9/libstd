@@ -91,61 +91,61 @@ extern "C"
 int __stdcall _startup(void){
 //
 
-	//
-	int result = -1;
+  //
+  int result = -1;
 
 //
 #ifdef _CONSOLE
-	int argc;
-	LPTSTR argv[_MAX_ARGV +1];
+  int argc;
+  LPTSTR argv[_MAX_ARGV +1];
 #endif // _CONSOLE
 
 //
 #ifdef _WINDOWS
-	STARTUPINFO si;
+  STARTUPINFO si;
 #endif // _WINDOWS
 
-	//
-	LPCTSTR raw_cmdline = GetCommandLine();
+  //
+  LPCTSTR raw_cmdline = GetCommandLine();
   LPTSTR cmdline = (LPTSTR)HeapAlloc(
   	GetProcessHeap()
   	, HEAP_ZERO_MEMORY
   	, (sizeof(raw_cmdline[0]) * (lstrlen(raw_cmdline) +1))
   );
 
-	//
-	if(cmdline != NULL){
-		//
-		lstrcpy(cmdline, raw_cmdline);
+  //
+  if(cmdline != NULL){
+  	//
+  	lstrcpy(cmdline, raw_cmdline);
 //
 #ifdef _CONSOLE
-		argc = _commandline_to_argv(cmdline, argv, _MAX_ARGV);
-		result = _tmain(argc, argv, 0);
-		//
+  	argc = _commandline_to_argv(cmdline, argv, _MAX_ARGV);
+  	result = _tmain(argc, argv, 0);
+  	//
 #endif // _CONSOLE
 
 //
 #ifdef _WINDOWS
-		//
-		si.dwFlags = 0;
-		GetStartupInfo(&si);
-		//
-		result = _tWinMain(
-			GetModuleHandle(0)
-			, 0
-			, PathGetArgs(cmdline)
-			, (si.dwFlags&STARTF_USESHOWWINDOW ? si.wShowWindow : SW_SHOWDEFAULT)
-		);
-		//
+  	//
+  	si.dwFlags = 0;
+  	GetStartupInfo(&si);
+  	//
+  	result = _tWinMain(
+  		GetModuleHandle(0)
+  		, 0
+  		, PathGetArgs(cmdline)
+  		, (si.dwFlags&STARTF_USESHOWWINDOW ? si.wShowWindow : SW_SHOWDEFAULT)
+  	);
+  	//
 #endif // _WINDOWS
 
-		//
-		if(! HeapFree(GetProcessHeap(), 0, cmdline)){ result = -1; }
-		//
-	}
-	//
-	return result;
-	//
+  	//
+  	if(! HeapFree(GetProcessHeap(), 0, cmdline)){ result = -1; }
+  	//
+  }
+  //
+  return result;
+  //
 }
 
 

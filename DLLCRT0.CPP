@@ -4,12 +4,14 @@
 
 
 
-//==========================================
+
+
 // LIBCTINY - Matt Pietrek 2001
 // MSDN Magazine, January 2001
 // http://www.wheaty.net/downloads.htm
 // FILE: DLLCRT0.CPP
-//==========================================
+
+
 #include <windows.h>
 #include "initterm.h"
 #pragma comment(linker, "/defaultlib:kernel32.lib")
@@ -58,4 +60,10 @@ BOOL WINAPI _DllMainCRTStartup(
 
     return retcode ;
 }
+
+
+
+
+
+//
 

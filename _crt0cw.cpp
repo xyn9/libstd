@@ -6,11 +6,11 @@
 
 
 
-//==========================================
+
 // LIBCTINY - Matt Pietrek 2001
 // MSDN Magazine, January 2001
 // http://www.wheaty.net/downloads.htm
-//==========================================
+
 
 #pragma comment(linker, "/defaultlib:kernel32.lib")
 #pragma comment(linker, "/opt:nowin98")
@@ -77,34 +77,34 @@ void __cdecl
 
 #ifdef _CONSOLE // _CONSOLE
 
-	#ifdef UNICODE
+  #ifdef UNICODE
 wmainCRTStartup(void)
-	#else
+  #else
 mainCRTStartup(void)
-	#endif
+  #endif
 
 #else
 
-	#ifdef UNICODE
+  #ifdef UNICODE
 wWinMainCRTStartup(void)
-	#else
+  #else
 WinMainCRTStartup(void)
-	#endif
+  #endif
 
 #endif
 //
 {
-	//
-	int result = -1;
   //
-	_atexit_init();	// set up our minimal cheezy atexit table
-	_initterm(__xc_a, __xc_z);	// Call C++ constructors
-	//
+  int result = -1;
+  //
+  _atexit_init();	// set up our minimal cheezy atexit table
+  _initterm(__xc_a, __xc_z);	// Call C++ constructors
+  //
   result = _startup();
-	//
-	_doexit();
-	ExitProcess(result);
-	//
+  //
+  _doexit();
+  ExitProcess(result);
+  //
 }
 
 

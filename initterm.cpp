@@ -4,11 +4,13 @@
 
 
 
-//==========================================
+
+
 // LIBCTINY - Matt Pietrek 2001
 // MSDN Magazine, January 2001
 // http://www.wheaty.net/downloads.htm
-//==========================================
+
+
 #include <windows.h>
 #include <malloc.h>
 #include "initterm.h"
@@ -74,4 +76,10 @@ void __cdecl _doexit( void )
                     pf_atexitlist + cur_atexitlist_entries );
     }
 }
+
+
+
+
+
+//
 

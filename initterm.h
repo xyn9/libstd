@@ -6,11 +6,10 @@
 
 
 
-//==========================================
 // LIBCTINY - Matt Pietrek 2001
 // MSDN Magazine, January 2001
 // http://www.wheaty.net/downloads.htm
-//==========================================
+
 typedef void (__cdecl *_PVFV)(void);
 extern _PVFV __xc_a[], __xc_z[];    /* C++ initializers */
 
@@ -19,4 +18,8 @@ void __cdecl _atexit_init(void);
 void __cdecl _doexit( void );
 
 
+
+
+
+//
 

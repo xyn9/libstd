@@ -4,22 +4,26 @@
 
 
 
-//==========================================
+
+
 // LIBCTINY - Matt Pietrek 2001
 // MSDN Magazine, January 2001
 // http://www.wheaty.net/downloads.htm
-//==========================================
 
 
 #include <windows.h>
 
 
 int __cdecl _purecall(void)
-	{
-	ExitProcess(13);
-	// egad! this is never reached!
-	return 0;
-	}
+  {
+  ExitProcess(13);
+  // egad! this is never reached!
+  return 0;
+  }
 
 
+
+
+
+//
 

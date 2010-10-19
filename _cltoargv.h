@@ -19,8 +19,8 @@
 extern "C"
 #endif // __cplusplus
 size_t __cdecl _commandline_to_argv(
-	LPTSTR _cmdline
-	, LPTSTR *_argv, size_t _arg_size
+  LPTSTR _cmdline
+  , LPTSTR *_argv, size_t _arg_size
 );
 
 

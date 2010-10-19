@@ -75,36 +75,36 @@ mainCRTStartup(void)
 #endif
 //
 {
-	//
-	int result = -1;
-	//
-	LPCTSTR raw_cmdline = GetCommandLine();
+  //
+  int result = -1;
+  //
+  LPCTSTR raw_cmdline = GetCommandLine();
   LPTSTR cmdline = (LPTSTR)HeapAlloc(
   	GetProcessHeap()
   	, HEAP_ZERO_MEMORY
   	, (sizeof(raw_cmdline[0]) * (lstrlen(raw_cmdline) +1))
   );
-	//
-	int argc;
-	LPTSTR argv[_MAX_ARGV +1];
+  //
+  int argc;
+  LPTSTR argv[_MAX_ARGV +1];
 
   //
-	_atexit_init();	// set up our minimal cheezy atexit table
-	_initterm(__xc_a, __xc_z);	// Call C++ constructors
+  _atexit_init();	// set up our minimal cheezy atexit table
+  _initterm(__xc_a, __xc_z);	// Call C++ constructors
   //
   if(cmdline != NULL){
-	  //
+    //
     lstrcpy(cmdline, raw_cmdline);
     argc = _commandline_to_argv(cmdline, argv, _MAX_ARGV);
     //
-	  result = _tmain(argc, argv, 0);
-	  //
+    result = _tmain(argc, argv, 0);
+    //
     if(! HeapFree(GetProcessHeap(), 0, cmdline)){ result = -1; }
   }
   //
-	_doexit();
-	ExitProcess(result);
-	//
+  _doexit();
+  ExitProcess(result);
+  //
 }
 
 

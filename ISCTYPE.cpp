@@ -27,11 +27,11 @@ extern "C"
 //
 int iswctype(wint_t c, wctype_t type)
 {
-	WORD ret;
-	GetStringTypeW(CT_CTYPE1, (LPCWSTR)&c, 1, &ret);
-	if ((ret & type) != 0)
-		return 1;
-	return 0;
+  WORD ret;
+  GetStringTypeW(CT_CTYPE1, (LPCWSTR)&c, 1, &ret);
+  if ((ret & type) != 0)
+  	return 1;
+  return 0;
 }
 
 

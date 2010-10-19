@@ -19,15 +19,21 @@
 #include <stddef.h>
 
 void *memcpy(void *_dst, const void *_src, size_t _size){
-	//
-	char *dst = (char*)_dst;
-	const char *src = (char*)_src;
-	size_t i;
-	//
-	for(i=0; i<_size; i++){
-		dst[i] = src[i];
-	}
-	//
-	return _dst;
+  //
+  char *dst = (char*)_dst;
+  const char *src = (char*)_src;
+  size_t i;
+  //
+  for(i=0; i<_size; i++){
+  	dst[i] = src[i];
+  }
+  //
+  return _dst;
 }
+
+
+
+
+
+//
 

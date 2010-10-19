@@ -22,6 +22,10 @@ echo:
 %LSTD_NMAKE_BIN% /f %LSTD_NMAKE_FILE% /clean
 del *.lib *.obj *.plg *.ncb *.pdb
 %LSTD_NMAKE_BIN% /f %LSTD_NMAKE_FILE%
+if "%LSTD_NMAKE_CFG%" == "nostartup" (
+	del /Q _crt0cw.obj _startup.obj
+	%LSTD_NMAKE_BIN% /f %LSTD_NMAKE_FILE% console=1
+)
 rem del *.obj
 rem %LSTD_NMAKE_BIN% /f %LSTD_NMAKE_FILE% unicode=1
 rem del *.obj
@@ -30,10 +34,15 @@ echo:
 echo .......................................
 del *.obj
 %LSTD_NMAKE_BIN% /f %LSTD_NMAKE_FILE% mt=1
+if "%LSTD_NMAKE_CFG%" == "nostartup" (
+	del /Q _crt0cw.obj _startup.obj
+	%LSTD_NMAKE_BIN% /f %LSTD_NMAKE_FILE% mt=1 console=1
+)
 rem del *.obj
 rem %LSTD_NMAKE_BIN% /f %LSTD_NMAKE_FILE% mt=1 debug=1
 echo:
 echo .......................................
+echo:
 xcopy libstd*.lib libstd\ /I /-Y
 del /Q libstd*.lib
 xcopy libstd.h libstd\ /I /-Y

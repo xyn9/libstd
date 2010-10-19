@@ -11,41 +11,41 @@ PROJ = libstd
 
 
 OBJS = \
-	_crt0cw.obj \
-	_cltoargv.obj \
-	_gettcs.obj \
-	_putts.obj \
+  _crt0cw.obj \
+  _cltoargv.obj \
+  _gettcs.obj \
+  _putts.obj \
 #
 # 	CRT0TCON.OBJ \
 #	CRT0TWIN.OBJ \
-	DLLCRT0.OBJ \
-	PRINTF.OBJ SPRINTF.OBJ \
+  DLLCRT0.OBJ \
+  PRINTF.OBJ SPRINTF.OBJ \
     ALLOC.OBJ ALLOCSUP.OBJ \
     ISCTYPE.obj  istspace.obj istdigit.obj istalpha.obj \
     ATOL.obj STRUPLWR.obj STRICMP.obj \
     newdel.obj INITTERM.OBJ \
-	purevirt.obj \
-	memcpy.obj memcmp.obj memset.obj memmove.obj \
+  purevirt.obj \
+  memcpy.obj memcmp.obj memset.obj memmove.obj \
 
 RELEASEOBJS = ALLOC2.OBJ 
 DEBUGOBJS = 
 
 CPPS = \
-	_crt0cw.cpp \
-	_cltoargv.cpp \
-	_gettcs.c \
-	_putts.c \
+  _crt0cw.cpp \
+  _cltoargv.cpp \
+  _gettcs.c \
+  _putts.c \
 #
 # 	CRT0TCON.cpp \
 #	CRT0TWIN.cpp \
-	DLLCRT0.cpp \
-	PRINTF.cpp SPRINTF.cpp \
+  DLLCRT0.cpp \
+  PRINTF.cpp SPRINTF.cpp \
     ALLOC.cpp ALLOCSUP.cpp \
     ISCTYPE.cpp  istspace.cpp istdigit.cpp istalpha.cpp \
     ATOL.cpp STRUPLWR.cpp STRICMP.cpp \
     newdel.cpp INITTERM.cpp \
-	purevirt.cpp \
-	memcpy.c memcmp.c memset.c memmove.c \
+  purevirt.cpp \
+  memcpy.c memcmp.c memset.c memmove.c \
 
 RELEASECPPS = ALLOC2.CPP
 DEBUGCPPS = 
@@ -53,6 +53,11 @@ DEBUGCPPS =
 CC = CL
 CC_OPTIONS = /c /W4 /D WIN32_LEAN_AND_MEAN
 
+
+!ifdef CONSOLE
+PROJ = $(PROJ)_con
+CPPS = _crt0cw.cpp
+!endif
 
 !ifdef MT
 PROJ = $(PROJ)_mt
@@ -78,6 +83,10 @@ OBJS = $(OBJS) $(RELEASEOBJS)
 # CC_OPTIONS = $(CC_OPTIONS) /O1 Oy /Zl
 CC_OPTIONS = $(CC_OPTIONS) /O1
 
+!ifdef CONSOLE
+CC_OPTIONS = $(CC_OPTIONS) /D _CONSOLE
+!endif
+
 !ifdef MT
 CC_OPTIONS = $(CC_OPTIONS) /MT
 !endif
@@ -95,12 +104,12 @@ $(PROJ).LIB: $(OBJS)
     LIB /OUT:$(PROJ).lib $(OBJS)
 
 clean:
-	-del *.obj
-	-del *.lib
+  -del *.obj
+  -del *.lib
 
-$(OBJS) : $(CPPS)
+$(OBJS): $(CPPS)
     $(CC) @<<
-	$(CC_OPTIONS)
-	$(CPPS)
+  $(CC_OPTIONS)
+  $(CPPS)
 <<
 

@@ -16,20 +16,20 @@
 // ------------------------------------------------------------
 //
 _TINT __stdcall _gettch_s(void){
-	//
-  TCHAR ch = 0;
-	HANDLE h_stdin = GetStdHandle(STD_INPUT_HANDLE);
-	DWORD current_mode = 0;
-	DWORD r_size = 0;
   //
-	if(h_stdin != INVALID_HANDLE_VALUE){
-		GetConsoleMode(h_stdin, &current_mode);
+  TCHAR ch = 0;
+  HANDLE h_stdin = GetStdHandle(STD_INPUT_HANDLE);
+  DWORD current_mode = 0;
+  DWORD r_size = 0;
+  //
+  if(h_stdin != INVALID_HANDLE_VALUE){
+    GetConsoleMode(h_stdin, &current_mode);
     SetConsoleMode(h_stdin, ENABLE_PROCESSED_INPUT);
     ReadConsole(h_stdin, &ch, 1, &r_size, 0);
-		SetConsoleMode(h_stdin, current_mode);
-	}
-	//
-	return ch;
+    SetConsoleMode(h_stdin, current_mode);
+  }
+  //
+  return ch;
 }
 
 
@@ -39,30 +39,30 @@ _TINT __stdcall _gettch_s(void){
 // ------------------------------------------------------------
 //
 TCHAR* __cdecl _getts_s(TCHAR *_buffer, size_t _length){
-	//
-	HANDLE h_stdin = GetStdHandle(STD_INPUT_HANDLE);
-	DWORD current_mode = 0;
-	DWORD r_size = 0;
+  //
+  HANDLE h_stdin = GetStdHandle(STD_INPUT_HANDLE);
+  DWORD current_mode = 0;
+  DWORD r_size = 0;
 
-	//
-	if(_length && (h_stdin != INVALID_HANDLE_VALUE)){
+  //
+  if(_length && (h_stdin != INVALID_HANDLE_VALUE)){
     //
-		GetConsoleMode(h_stdin, &current_mode);
+    GetConsoleMode(h_stdin, &current_mode);
     SetConsoleMode(h_stdin, (ENABLE_LINE_INPUT | ENABLE_ECHO_INPUT/* | ENABLE_PROCESSED_INPUT*/));
     //
     if(
-	    ReadConsole(h_stdin, &_buffer[0], _length, &r_size, 0)
-    	&& r_size
-    	&& *_buffer
+      ReadConsole(h_stdin, &_buffer[0], _length, &r_size, 0)
+      && r_size
+      && *_buffer
     ){
       _buffer[(r_size -1)] = 0;
       if(_buffer[(r_size -2)] == _T('\r')){ _buffer[(r_size -2)] = 0; }
     }
     //
-		SetConsoleMode(h_stdin, current_mode);
-	}
-	//
-	return _buffer;
+    SetConsoleMode(h_stdin, current_mode);
+  }
+  //
+  return _buffer;
 }
 
 

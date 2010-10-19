@@ -19,14 +19,20 @@
 #include <stddef.h>
 
 void *memset(void *_dst, int val, size_t _size){
-	//
-	char *realdst = (char*)_dst;
-	size_t i;
-	//
-	for (i=0; i<_size; i++){
-		realdst[i] = (char)val;
-	}
-	//
-	return _dst;
+  //
+  char *realdst = (char*)_dst;
+  size_t i;
+  //
+  for (i=0; i<_size; i++){
+  	realdst[i] = (char)val;
+  }
+  //
+  return _dst;
 }
+
+
+
+
+
+//
 
