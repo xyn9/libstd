@@ -1,5 +1,4 @@
 
-
 libstd 0.7
 
 
@@ -43,7 +42,7 @@ Options:
   "libstd.lib"(または"libstd_mt.lib")と"libstd.h"ともに同じパスにある
   ものとします．
 
-  1. プロプロセッサに"_USE_LIBSTD"(マルチスレッド版は"_USE_LIBSTD_MT")
+  1. プリプロセッサに"_USE_LIBSTD"(マルチスレッド版は"_USE_LIBSTD_MT")
     を定義
     ("_USE_LIBSTD"定義の有／無で使用／不使用切替え可)
 
