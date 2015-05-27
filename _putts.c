@@ -1,4 +1,4 @@
-// libstd / _putts.c
+// _putts.c / libstd
 // xyn9 <xyn9.mail@gmail.com>
 // (CC) Attribution-NonCommercial-ShareAlike; http://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -23,7 +23,8 @@ DWORD __cdecl _putts(LPCTSTR _buff){
   //
   return (
     (h_std && WriteFile(h_std, _buff, lstrlen(_buff), &writed_size, NULL))
-    ? writed_size : 0
+    ? writed_size
+    : 0
   );
 }
 

@@ -1,4 +1,4 @@
-// libstd / libstd.h
+// libstd.h / libstd
 // xyn9 <xyn9.mail@gmail.com>
 // (CC) Attribution-NonCommercial-ShareAlike; http://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -15,6 +15,7 @@
 #include <ctype.h>
 // ------------------------------------------------------------
 
+
 //
 #ifdef _USE_LIBSTD
 
@@ -25,11 +26,11 @@
  */
   #else // _DEBUG
 
-//    #ifdef _CONSOLE
-// #pragma comment(lib, "./libstd_con.lib")
-//    #else // _CONSOLE
+   #ifdef _CONSOLE
+#pragma comment(lib, "./libstd_con.lib")
+   #else // _CONSOLE
 #pragma comment(lib, "./libstd.lib")
-//    #endif // _CONSOLE
+   #endif // _CONSOLE
 #pragma comment(linker, "/nodefaultlib:libc.lib")
 
   #endif // _DEBUG
@@ -46,11 +47,11 @@
  */
   #else // _DEBUG
 
-//    #ifdef _CONSOLE
-// #pragma comment(lib, "./libstd_con_mt.lib")
-//    #else // _CONSOLE
+   #ifdef _CONSOLE
+#pragma comment(lib, "./libstd_con_mt.lib")
+   #else // _CONSOLE
 #pragma comment(lib, "./libstd_mt.lib")
-//    #endif // _CONSOLE
+   #endif // _CONSOLE
 #pragma comment(linker, "/nodefaultlib:libcmt.lib")
 
   #endif // _DEBUG
@@ -63,6 +64,18 @@
 
 // constants
 // ------------------------------------------------------------
+
+
+
+
+
+// macros
+// ------------------------------------------------------------
+//
+#define _TCH(_ch) ((char)(0xFF & _ch))
+//
+#define _CMP_STR($s1, $s2, $icase) \
+  (CompareString(LOCALE_SYSTEM_DEFAULT, ($icase ? NORM_IGNORECASE : 0), $s1,-1, $s2,-1) == CSTR_EQUAL)
 
 
 
@@ -82,18 +95,8 @@
 
 
 
-// macros
-// ------------------------------------------------------------
-#define _TCH(_ch) ((char)(0xFF & _ch))
-
-
-
-
-
 // prototypes
 // ------------------------------------------------------------
-
-
 //
 #ifdef __cplusplus
   extern "C" { // extern "C"

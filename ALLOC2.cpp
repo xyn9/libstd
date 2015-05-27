@@ -1,4 +1,4 @@
-// libstd / ALLOC2.cpp
+// ALLOC2.cpp / libstd
 // xyn9 <xyn9.mail@gmail.com>
 // (CC) Attribution-NonCommercial-ShareAlike; http://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -23,17 +23,17 @@ extern "C" {
 
 
 //
-void * __cdecl realloc(void * p, size_t size)
-{
-    if ( p )
-        return HeapReAlloc( GetProcessHeap(), 0, p, size );
-    else    // 'p' is 0, and HeapReAlloc doesn't act like realloc() here
-        return HeapAlloc( GetProcessHeap(), 0, size );
+void * __cdecl realloc(void * p, size_t size){
+  return (
+    p
+    ? HeapReAlloc(GetProcessHeap(), 0, p, size)
+    : HeapAlloc(GetProcessHeap(), 0, size) // 'p' is 0, and HeapReAlloc doesn't act like realloc() here
+  );
 }
+
 //
-void * __cdecl calloc(size_t nitems, size_t size)
-{
-    return HeapAlloc( GetProcessHeap(), HEAP_ZERO_MEMORY, nitems * size );
+void * __cdecl calloc(size_t nitems, size_t size){
+  return HeapAlloc(GetProcessHeap(), HEAP_ZERO_MEMORY, nitems * size);
 }
 
 

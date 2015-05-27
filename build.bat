@@ -3,7 +3,7 @@ rem libstd make
 rem xyn9 <xyn9.mail@gmail.com>
 rem (CC) Attribution-NonCommercial-ShareAlike, http://creativecommons.org/licenses/by-nc-sa/3.0/
 rem ------------------------------------------------------------
-cd "%~dp0"
+cd /d "%~dp0."
 rem NMAKE path(required)
 set LSTD_NMAKE_BIN="%ProgramFiles%\Microsoft Visual Studio\VC98\Bin\NMAKE.EXE"
 rem Archiver option(optional)

@@ -1,5 +1,6 @@
 
-libstd 0.7
+
+libstd 0.8
 
 
 Usage: build.bat [(default)|nostartup]
@@ -67,13 +68,11 @@ Options:
 
 
 
-2010.10.20
+2015.05.27
 ------------------------------------------------------------
-製造元
   xyn9 <xyn9.mail@gmail.com>
   http://xyn9.github.com/
 ------------------------------------------------------------
-日本製
 
 
 This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.

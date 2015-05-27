@@ -1,4 +1,4 @@
-// libstd / _crt0cw.cpp
+// _crt0cw.cpp / libstd
 // xyn9 <xyn9.mail@gmail.com>
 // (CC) Attribution-NonCommercial-ShareAlike; http://creativecommons.org/licenses/by-nc-sa/3.0/
 

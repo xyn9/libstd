@@ -1,4 +1,4 @@
-// libstd / _startup.cpp
+// _startup.cpp / libstd
 // xyn9 <xyn9.mail@gmail.com>
 // (CC) Attribution-NonCommercial-ShareAlike; http://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -134,7 +134,7 @@ int __stdcall _startup(void){
   		GetModuleHandle(0)
   		, 0
   		, PathGetArgs(cmdline)
-  		, (si.dwFlags&STARTF_USESHOWWINDOW ? si.wShowWindow : SW_SHOWDEFAULT)
+      , ((si.dwFlags & STARTF_USESHOWWINDOW) ? si.wShowWindow : SW_SHOWDEFAULT)
   	);
   	//
 #endif // _WINDOWS

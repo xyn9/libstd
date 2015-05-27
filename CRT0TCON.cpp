@@ -1,4 +1,4 @@
-// libstd / CRT0TCON.cpp
+// CRT0TCON.cpp / libstd
 // xyn9 <xyn9.mail@gmail.com>
 // (CC) Attribution-NonCommercial-ShareAlike; http://creativecommons.org/licenses/by-nc-sa/3.0/
 

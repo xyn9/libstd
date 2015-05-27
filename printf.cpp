@@ -1,4 +1,4 @@
-// libstd / printf.cpp
+// printf.cpp / libstd
 // xyn9 <xyn9.mail@gmail.com>
 // (CC) Attribution-NonCommercial-ShareAlike; http://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -32,9 +32,7 @@ int __cdecl _tprintf(LPCTSTR _format, ...){
   writed_size = wvsprintf(buff, _format, argptr);
   va_end(argptr);
   //
-  if( writed_size ){ writed_size = _putts(buff); }
-  //
-  return writed_size;
+  return (writed_size ? _putts(buff) : 0);
 }
 
 
