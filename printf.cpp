@@ -31,8 +31,9 @@ int __cdecl _tprintf(LPCTSTR _format, ...){
   va_start(argptr, _format);
   writed_size = wvsprintf(buff, _format, argptr);
   va_end(argptr);
+  writed_size = writed_size ? _putts(buff) : 0;
   //
-  return (writed_size ? _putts(buff) : 0);
+  return writed_size;
 }
 
 
